@@ -25,7 +25,7 @@ This project implements a high-performance, highly available load balancer for D
 1. Clone the repository:
     
     ```bash
-    git clone
+    git clone https://github.com/your-username/deeplx-load-balancer.git
     cd deeplx-load-balancer
     ```
 2. Build the Docker image:
