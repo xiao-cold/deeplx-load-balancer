@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  read_timeout: 5s
+  write_timeout: 10s
+
+cache:
+  ttl: 10m
+  max_size: 100MB
+
+health_check:
+  interval: 30s
+  timeout: 5s
+
+performance_tracker:
+  interval: 1m
+
+load_balancer:
+  algorithm: weighted_round_robin
+
+api:
+  rate_limit:
+    requests: 100
+    per: 1m
+
+logging:
+  level: info
+  format: json
+
+metrics:
+  prometheus_endpoint: /metrics
