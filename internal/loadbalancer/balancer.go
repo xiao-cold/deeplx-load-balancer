@@ -5,8 +5,9 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/xiao-cold/deeplx-load-balancer/internal/metrics"
-	"github.com/xiao-cold/deeplx-load-balancer/internal/models"
+	"deeplx-load-balancer/internal/metrics"
+	"deeplx-load-balancer/internal/models"
+
 	"go.uber.org/zap"
 )
 

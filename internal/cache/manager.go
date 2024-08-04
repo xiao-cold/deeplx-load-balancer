@@ -3,8 +3,9 @@ package cache
 import (
 	"time"
 
+	"deeplx-load-balancer/internal/metrics"
+
 	"github.com/allegro/bigcache"
-	"github.com/xiao-cold/deeplx-load-balancer/internal/metrics"
 	"go.uber.org/zap"
 )
 

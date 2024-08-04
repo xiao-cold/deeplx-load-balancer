@@ -3,12 +3,12 @@ package main
 import (
 	"net/http"
 
-	"github.com/xiao-cold/deeplx-load-balancer/internal/api"
-	"github.com/xiao-cold/deeplx-load-balancer/internal/cache"
-	"github.com/xiao-cold/deeplx-load-balancer/internal/health"
-	"github.com/xiao-cold/deeplx-load-balancer/internal/loadbalancer"
-	"github.com/xiao-cold/deeplx-load-balancer/internal/metrics"
-	"github.com/xiao-cold/deeplx-load-balancer/internal/performance"
+	"deeplx-load-balancer/internal/api"
+	"deeplx-load-balancer/internal/cache"
+	"deeplx-load-balancer/internal/health"
+	"deeplx-load-balancer/internal/loadbalancer"
+	"deeplx-load-balancer/internal/metrics"
+	"deeplx-load-balancer/internal/performance"
 
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/zap"
@@ -31,7 +31,7 @@ func main() {
 
 	// Set up HTTP server
 	http.Handle("/metrics", promhttp.Handler())
-	http.Handle("/translate", apiGateway.HandleTranslate)
+	http.Handle("/translate", http.HandlerFunc(apiGateway.HandleTranslate))
 
 	logger.Info("Starting server on :8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {

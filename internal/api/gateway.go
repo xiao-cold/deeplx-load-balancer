@@ -1,13 +1,13 @@
 package api
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 
-	"github.com/xiao-cold/deeplx-load-balancer/internal/cache"
-	"github.com/xiao-cold/deeplx-load-balancer/internal/loadbalancer"
-	"github.com/xiao-cold/deeplx-load-balancer/internal/metrics"
-	"github.com/xiao-cold/deeplx-load-balancer/pkg/utils"
+	"deeplx-load-balancer/internal/cache"
+	"deeplx-load-balancer/internal/loadbalancer"
+	"deeplx-load-balancer/internal/metrics"
+	"deeplx-load-balancer/pkg/utils"
 
 	"go.uber.org/zap"
 )
@@ -35,7 +35,7 @@ func (ag *APIGateway) HandleTranslate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		http.Error(w, "Failed to read request body", http.StatusBadRequest)
 		return

@@ -2,11 +2,11 @@ package utils
 
 import (
 	"bytes"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 
-	"github.com/xiao-cold/deeplx-load-balancer/internal/models"
+	"deeplx-load-balancer/internal/models"
 )
 
 var client = &http.Client{
@@ -25,5 +25,5 @@ func ForwardRequest(server *models.Server, body []byte) ([]byte, error) {
 	}
 	defer resp.Body.Close()
 
-	return ioutil.ReadAll(resp.Body)
+	return io.ReadAll(resp.Body)
 }
